@@ -74,29 +74,34 @@ class SignUpScreen extends StatelessWidget {
         elevation: 2,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: Sizes.size10,
+            vertical: Sizes.size20,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Already have an account?",
-                style: TextStyle(
-                  fontSize: Sizes.size14,
-                ),
-              ),
-              Gaps.h5,
-              GestureDetector(
-                onTap: () => _onLoginTap(context),
-                child: Text(
-                  "Log in",
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: Sizes.size1,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Already have an account?",
                   style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontWeight: FontWeight.w600,
-                      fontSize: Sizes.size16),
+                    fontSize: Sizes.size14,
+                  ),
                 ),
-              ),
-            ],
+                Gaps.h5,
+                GestureDetector(
+                  onTap: () => _onLoginTap(context),
+                  child: Text(
+                    "Log in",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: Sizes.size16),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
