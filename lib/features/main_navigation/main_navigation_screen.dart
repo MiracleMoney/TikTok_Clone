@@ -1,5 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktok_clone2/constants/gaps.dart';
+import 'package:tiktok_clone2/constants/sizes.dart';
+import 'package:tiktok_clone2/features/main_navigation/widget/nav_tab.dart';
+import 'package:tiktok_clone2/features/main_navigation/widget/post_video_button.dart';
+import 'package:tiktok_clone2/features/videos/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -11,23 +17,53 @@ class MainNavigationScreen extends StatefulWidget {
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _selectedIndex = 0;
 
-  final screens = [
-    const Center(
-      child: Text("Home"),
-    ),
-    const Center(
-      child: Text("Search"),
-    ),
-    const Center(
-      child: Text("Search"),
-    ),
-    const Center(
-      child: Text("Search"),
-    ),
-    const Center(
-      child: Text("Search"),
-    ),
-  ];
+  // final screens = [
+  //   StfScreen(key: GlobalKey()),
+  //   StfScreen(key: GlobalKey()),
+  //   Container(),
+  //   StfScreen(key: GlobalKey()),
+  //   StfScreen(key: GlobalKey()),
+  // const Center(
+  //   child: Text(
+  //     "Home",
+  //     style: TextStyle(
+  //       fontSize: 49,
+  //     ),
+  //   ),
+  // ),
+  // const Center(
+  //   child: Text(
+  //     "Discover",
+  //     style: TextStyle(
+  //       fontSize: 49,
+  //     ),
+  //   ),
+  // ),
+  // const Center(
+  //   child: Text(
+  //     "Search",
+  //     style: TextStyle(
+  //       fontSize: 49,
+  //     ),
+  //   ),
+  // ),
+  // const Center(
+  //   child: Text(
+  //     "Inbox",
+  //     style: TextStyle(
+  //       fontSize: 49,
+  //     ),
+  //   ),
+  // ),
+  // const Center(
+  //   child: Text(
+  //     "Profile",
+  //     style: TextStyle(
+  //       fontSize: 49,
+  //     ),
+  //   ),
+  // ),
+  // ];
 
   void _onTap(int index) {
     setState(() {
@@ -35,46 +71,86 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     });
   }
 
+  void _onPostViedoButtonTap() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => Scaffold(
+        appBar: AppBar(
+          title: const Text("Record viedo"),
+        ),
+      ),
+      fullscreenDialog: true,
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _onTap,
-        currentIndex: _selectedIndex,
-        // selectedItemColor: Theme.of(context).primaryColor,
-        items: const [
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.house),
-            label: "Home",
-            tooltip: "What are you?",
-            backgroundColor: Colors.amber,
+      body: Stack(
+        children: [
+          Offstage(
+            offstage: _selectedIndex != 0,
+            child: const VideoTimelineScreen(),
           ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-            label: "Search",
-            tooltip: "What are you?",
-            backgroundColor: Colors.blue,
+          Offstage(
+            offstage: _selectedIndex != 1,
+            child: Container(),
           ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-            label: "Search",
-            tooltip: "What are you?",
-            backgroundColor: Colors.pink,
+          Offstage(
+            offstage: _selectedIndex != 3,
+            child: Container(),
           ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-            label: "Search",
-            tooltip: "What are you?",
-            backgroundColor: Colors.yellow,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-            label: "Search",
-            tooltip: "What are you?",
-            backgroundColor: Colors.teal,
+          Offstage(
+            offstage: _selectedIndex != 4,
+            child: Container(),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.all(
+            Sizes.size12,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              NavTab(
+                text: "Home",
+                isSelected: _selectedIndex == 0,
+                icon: FontAwesomeIcons.house,
+                selectedIcon: FontAwesomeIcons.house,
+                onTap: () => _onTap(0),
+              ),
+              NavTab(
+                text: "Discover",
+                isSelected: _selectedIndex == 1,
+                icon: FontAwesomeIcons.compass,
+                selectedIcon: FontAwesomeIcons.solidCompass,
+                onTap: () => _onTap(1),
+              ),
+              Gaps.h24,
+              GestureDetector(
+                onTap: _onPostViedoButtonTap,
+                child: const PostVideoButton(),
+              ),
+              Gaps.h24,
+              NavTab(
+                text: "Inbox",
+                isSelected: _selectedIndex == 3,
+                icon: FontAwesomeIcons.message,
+                selectedIcon: FontAwesomeIcons.solidMessage,
+                onTap: () => _onTap(3),
+              ),
+              NavTab(
+                text: "Profile",
+                isSelected: _selectedIndex == 4,
+                icon: FontAwesomeIcons.user,
+                selectedIcon: FontAwesomeIcons.solidUser,
+                onTap: () => _onTap(4),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
