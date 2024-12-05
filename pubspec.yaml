@@ -39,8 +39,7 @@ dependencies:
 
   video_player: 2.4.10
 
-    visibility_detector: 0.3.3
-
+  visibility_detector: 0.3.3
 
 dev_dependencies:
   flutter_test:
