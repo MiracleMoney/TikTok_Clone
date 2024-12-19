@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone2/constants/gaps.dart';
 import 'package:tiktok_clone2/constants/sizes.dart';
 import 'package:tiktok_clone2/features/%08discover/discover_screen.dart';
+import 'package:tiktok_clone2/features/inbox/inbox_screen.dart';
 import 'package:tiktok_clone2/features/main_navigation/widget/nav_tab.dart';
 import 'package:tiktok_clone2/features/main_navigation/widget/post_video_button.dart';
 import 'package:tiktok_clone2/features/videos/video_timeline_screen.dart';
@@ -100,7 +101,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ),
           Offstage(
             offstage: _selectedIndex != 3,
-            child: Container(),
+            child: const InboxScreen(),
           ),
           Offstage(
             offstage: _selectedIndex != 4,
