@@ -151,7 +151,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
               ),
               SliverPersistentHeader(
-                delegate: PersisteneTabBar(),
+                delegate: PersistentTabBar(),
                 pinned: true,
               )
             ];
