@@ -5,6 +5,7 @@ import 'package:tiktok_clone2/constants/sizes.dart';
 import 'package:tiktok_clone2/features/authentication/widgets/login_form_screen.dart';
 import 'package:tiktok_clone2/features/authentication/widgets/sign_up_screen.dart';
 import 'package:tiktok_clone2/features/authentication/widgets/auth_button.dart';
+import 'package:tiktok_clone2/utils.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -36,13 +37,15 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               Gaps.v20,
-              const Text(
-                "Manage your account, check notifications, comment on videos, and more.",
-                style: TextStyle(
-                  fontSize: Sizes.size16,
-                  color: Colors.black45,
+              const Opacity(
+                opacity: 0.7,
+                child: Text(
+                  "Manage your account, check notifications, comment on videos, and more.",
+                  style: TextStyle(
+                    fontSize: Sizes.size16,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
               Gaps.v40,
               GestureDetector(
@@ -64,33 +67,38 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.grey.shade50,
+        color: isDarkMode(context) ? null : Colors.grey.shade50,
         elevation: 2,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: Sizes.size10,
+            vertical: Sizes.size20,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Don't have an account?",
-                style: TextStyle(
-                  fontSize: Sizes.size14,
-                ),
-              ),
-              Gaps.h5,
-              GestureDetector(
-                onTap: () => _onSignUpTap(context),
-                child: Text(
-                  "Sign up",
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: Sizes.size1,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Don't have an account?",
                   style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontWeight: FontWeight.w600,
-                      fontSize: Sizes.size16),
+                    fontSize: Sizes.size14,
+                  ),
                 ),
-              ),
-            ],
+                Gaps.h5,
+                GestureDetector(
+                  onTap: () => _onSignUpTap(context),
+                  child: Text(
+                    "Sign up",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: Sizes.size16),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

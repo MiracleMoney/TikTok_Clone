@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone2/constants/gaps.dart';
 import 'package:tiktok_clone2/constants/sizes.dart';
 import 'package:tiktok_clone2/features/onboarding/tutorial_screen.dart';
+import 'package:tiktok_clone2/utils.dart';
 
 import 'widgets/interest_button.dart';
 
@@ -146,14 +147,19 @@ class _InterestsScreenState extends State<InterestsScreen> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        elevation: 1,
+        color: isDarkMode(context) ? null : Colors.grey.shade50,
+        elevation: 2,
         child: Padding(
-          padding: const EdgeInsets.only(
-            bottom: Sizes.size40,
-            top: Sizes.size16,
-            left: Sizes.size24,
-            right: Sizes.size24,
-          ),
+          padding: isDarkMode(context)
+              ? const EdgeInsets.symmetric(
+                  vertical: 0,
+                )
+              : const EdgeInsets.only(
+                  bottom: Sizes.size40,
+                  top: Sizes.size16,
+                  left: Sizes.size24,
+                  right: Sizes.size24,
+                ),
           child: GestureDetector(
             onTap: _onNextTap,
             child: Container(
@@ -163,11 +169,11 @@ class _InterestsScreenState extends State<InterestsScreen> {
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
               ),
-              child: const Text(
+              child: Text(
                 textAlign: TextAlign.center,
                 "Next",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: isDarkMode(context) ? Colors.white : Colors.white,
                   fontSize: Sizes.size16,
                 ),
               ),

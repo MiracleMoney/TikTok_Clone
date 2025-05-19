@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone2/constants/gaps.dart';
 import 'package:tiktok_clone2/constants/sizes.dart';
 import 'package:tiktok_clone2/features/main_navigation/main_navigation_screen.dart';
+import 'package:tiktok_clone2/utils.dart';
 
 enum Direction { right, left }
 
@@ -114,18 +115,26 @@ class _TutorialScreenState extends State<TutorialScreen> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
+          color: isDarkMode(context) ? Colors.black : Colors.white,
           child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: Sizes.size24,
-                horizontal: Sizes.size24,
-              ),
+              padding: isDarkMode(context)
+                  ? const EdgeInsets.symmetric(vertical: 0)
+                  : const EdgeInsets.symmetric(
+                      vertical: Sizes.size24,
+                      horizontal: Sizes.size24,
+                    ),
               child: AnimatedOpacity(
                 opacity: _showingPage == Page.first ? 0 : 1,
                 duration: const Duration(milliseconds: 300),
                 child: CupertinoButton(
                   onPressed: _onEnterAppTap,
                   color: Theme.of(context).primaryColor,
-                  child: const Text("Enter the app!"),
+                  child: const Text(
+                    "Enter the app!",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               )),
         ),
