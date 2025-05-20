@@ -9,6 +9,7 @@ import 'package:tiktok_clone2/features/main_navigation/widget/nav_tab.dart';
 import 'package:tiktok_clone2/features/main_navigation/widget/post_video_button.dart';
 import 'package:tiktok_clone2/features/users/user_profile_screen.dart';
 import 'package:tiktok_clone2/features/videos/video_timeline_screen.dart';
+import 'package:tiktok_clone2/utils.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -87,6 +88,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = isDarkMode(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: _selectedIndex == 0 ? Colors.black : Colors.white,
@@ -111,11 +113,13 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        color: _selectedIndex == 0 ? Colors.black : Colors.white,
+        color: _selectedIndex == 0 || isDark ? Colors.black : Colors.white,
         child: Padding(
-          padding: const EdgeInsets.all(
-            Sizes.size12,
-          ),
+          padding: isDark
+              ? const EdgeInsets.all(Sizes.size2)
+              : const EdgeInsets.all(
+                  Sizes.size12,
+                ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone2/constants/breakpoints.dart';
 import 'package:tiktok_clone2/constants/gaps.dart';
 import 'package:tiktok_clone2/constants/sizes.dart';
+import 'package:tiktok_clone2/utils.dart';
 
 final tabs = [
   "Top",
@@ -58,6 +59,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             controller: _textEditingController,
             onChanged: _onSearchChanged,
             onSubmitted: _onSearchSubmitted,
+            style: TextStyle(
+              color: isDarkMode(context) ? Colors.white : Colors.black,
+            ),
           ),
           bottom: TabBar(
             onTap: (index) => _toggleKeyboard(),
@@ -70,9 +74,6 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               fontWeight: FontWeight.w600,
               fontSize: Sizes.size16,
             ),
-            unselectedLabelColor: Colors.grey.shade500,
-            indicatorColor: Colors.black,
-            labelColor: Colors.black,
             tabs: [
               for (var tab in tabs)
                 Tab(
@@ -115,19 +116,23 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                   ),
                   Gaps.v10,
                   Text(
-                    "${constraints.maxWidth} This is a very long caption for my tiktok that im upload just now currently",
+                    "This is a very long caption for my tiktok that im upload just now currently",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: Sizes.size16 + Sizes.size2,
+                    style: TextStyle(
+                      fontSize: isDarkMode(context)
+                          ? Sizes.size16
+                          : Sizes.size16 + Sizes.size2,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Gaps.v8,
-                  if (constraints.maxWidth < 200 || constraints.maxWidth > 250)
+                  if (constraints.maxWidth < 200 || constraints.maxWidth > 200)
                     DefaultTextStyle(
                       style: TextStyle(
-                        color: Colors.grey.shade600,
+                        color: isDarkMode(context)
+                            ? Colors.grey.shade600
+                            : Colors.grey.shade600,
                         fontWeight: FontWeight.bold,
                       ),
                       child: Row(
