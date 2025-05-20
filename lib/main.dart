@@ -57,6 +57,9 @@ class TikTokApp extends StatelessWidget {
             unselectedLabelColor: Colors.grey.shade500,
             indicatorColor: Colors.black,
             labelColor: Colors.black,
+          ),
+          listTileTheme: const ListTileThemeData(
+            iconColor: Colors.black,
           )),
       darkTheme: ThemeData(
         tabBarTheme: TabBarTheme(
@@ -72,6 +75,12 @@ class TikTokApp extends StatelessWidget {
         brightness: Brightness.dark,
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.grey.shade900,
+          elevation: 0,
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontSize: Sizes.size16 + Sizes.size2,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         bottomAppBarTheme: BottomAppBarTheme(
           color: Colors.grey.shade900,
