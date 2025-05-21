@@ -115,15 +115,14 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     ),
                   ),
                   Gaps.v10,
-                  Text(
+                  const Text(
                     "This is a very long caption for my tiktok that im upload just now currently",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: isDarkMode(context)
-                          ? Sizes.size16
-                          : Sizes.size16 + Sizes.size2,
+                      fontSize: Sizes.size16 + Sizes.size2,
                       fontWeight: FontWeight.bold,
+                      height: 1.1,
                     ),
                   ),
                   Gaps.v8,

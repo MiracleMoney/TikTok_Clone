@@ -146,36 +146,28 @@ class _InterestsScreenState extends State<InterestsScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: isDarkMode(context) ? null : Colors.grey.shade50,
-        elevation: 2,
-        child: Padding(
-          padding: isDarkMode(context)
-              ? const EdgeInsets.symmetric(
-                  vertical: 0,
-                )
-              : const EdgeInsets.only(
-                  bottom: Sizes.size40,
-                  top: Sizes.size16,
-                  left: Sizes.size24,
-                  right: Sizes.size24,
-                ),
-          child: GestureDetector(
-            onTap: _onNextTap,
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: Sizes.size20,
-              ),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-              ),
-              child: Text(
-                textAlign: TextAlign.center,
-                "Next",
-                style: TextStyle(
-                  color: isDarkMode(context) ? Colors.white : Colors.white,
-                  fontSize: Sizes.size16,
-                ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(
+          bottom: Sizes.size40,
+          top: Sizes.size16,
+          left: Sizes.size24,
+          right: Sizes.size24,
+        ),
+        child: GestureDetector(
+          onTap: _onNextTap,
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              vertical: Sizes.size20,
+            ),
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+            ),
+            child: Text(
+              textAlign: TextAlign.center,
+              "Next",
+              style: TextStyle(
+                color: isDarkMode(context) ? Colors.white : Colors.white,
+                fontSize: Sizes.size16,
               ),
             ),
           ),
