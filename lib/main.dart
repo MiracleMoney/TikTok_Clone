@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tiktok_clone2/constants/gaps.dart';
 import 'package:tiktok_clone2/constants/sizes.dart';
+import 'package:tiktok_clone2/features/authentication/widgets/email_screen.dart';
 import 'package:tiktok_clone2/features/authentication/widgets/login_screen.dart';
 import 'package:tiktok_clone2/features/authentication/widgets/sign_up_screen.dart';
 import 'package:tiktok_clone2/features/authentication/widgets/username_screen.dart';
@@ -102,6 +103,7 @@ class TikTokApp extends StatelessWidget {
         SignUpScreen.routeName: (context) => const SignUpScreen(),
         UsernameScreen.routeName: (context) => const UsernameScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
+        EmailScreen.routeName: (context) => const EmailScreen()
       },
     );
   }
