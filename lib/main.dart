@@ -7,7 +7,7 @@ import 'package:tiktok_clone2/features/authentication/widgets/login_screen.dart'
 import 'package:tiktok_clone2/features/authentication/widgets/sign_up_screen.dart';
 import 'package:tiktok_clone2/features/authentication/widgets/username_screen.dart';
 import 'package:tiktok_clone2/features/inbox/activity_screen.dart';
-import 'package:tiktok_clone2/features/main_navigation/main_navigation_screen.dart';
+import 'package:tiktok_clone2/common/widgets/main_navigation/main_navigation_screen.dart';
 import 'package:tiktok_clone2/features/onboarding/interests_screen.dart';
 import 'package:tiktok_clone2/router.dart';
 
